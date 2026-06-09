@@ -3,17 +3,20 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p ./tsconfig.json",
-    "start:dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/index.js\""
+    "start:dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/app.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tsc-watch": "^7.2.0",
-    "typescript": "^6.0.3"
+    "@types/express": "5.0.6",
+    "@types/node": "25.9.2",
+    "express": "5.2.1",
+    "tsc-watch": "7.2.0",
+    "typescript": "6.0.3"
   }
 }
