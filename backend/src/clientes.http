@@ -14,3 +14,26 @@ Content-Type: application/json
   "tel": 123456789,
   "email": "email@empresaxyz.com"
 }
+
+### actualizar un cliente existente
+PUT http://localhost:3000/api/clientes/2
+Content-Type: application/json
+
+{
+  "razon_social": "Empresa MZ",
+  "cuit": "35-55555555-3",
+  "tel": 987987987,
+  "email": "email@empresamz.com"
+}
+
+
+### actualizar parcialmente un cliente existente
+PATCH http://localhost:3000/api/clientes/2
+Content-Type: application/json
+
+{
+  "tel": 888888888
+}
+
+### eliminar un cliente
+DELETE http://localhost:3000/api/clientes/2
