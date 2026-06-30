@@ -31,6 +31,7 @@ export class ClienteRepository implements Repository<Cliente> {
     const index = clientes.findIndex((cliente) => cliente.id === item.id)
     if (index !== -1) {
       const deletedCliente = clientes[index]
+      clientes.splice(index, 1)
       return deletedCliente
     }
   }
