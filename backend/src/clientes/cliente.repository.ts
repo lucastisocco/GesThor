@@ -1,6 +1,7 @@
 import {Repository} from '../shared/repository.js';
 import {Cliente} from './cliente.entity.js';
 import {pool} from '../shared/db/conn.mysql.js';
+import { RowDataPacket } from 'mysql2/promise';
 
 const clientes: Cliente[] = [
   new Cliente(1, 'Empresa A', '20-12345678-9', 123456789, 'email@empresaA.com')
@@ -12,9 +13,14 @@ export class ClienteRepository implements Repository<Cliente> {
     return clientes as Cliente[]
   }
 
-  public findOne(item: { id: number }): Cliente | undefined {
-    return clientes.find((cliente) => cliente.id === item.id)
-  }
+  public async findOne(item: { id: number }): Promise<Cliente | undefined> {
+    const id = item.id
+    const [cliente] = await pool.query<RowDataPacket[]>('SELECT * FROM cliente WHERE id_cliente = ?', [id])
+    if (cliente.length === 0) {
+      return undefined
+    }
+    return cliente[0] as Cliente
+  } 
 
   public add(item: Cliente): Cliente | undefined {
     clientes.push(item)

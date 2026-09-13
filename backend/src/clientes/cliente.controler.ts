@@ -28,9 +28,9 @@ async function findAll(req: Request, res: Response) {
 
 async function findOne(req: Request, res: Response) {
   const id = Number(req.params.id)
-  const cliente = repository.findOne({ id })
+  const cliente = await repository.findOne({ id })
   if (cliente) {
-    return res.json(cliente)
+    return res.json({ data: cliente })
   } else {
     return res.status(404).send({ message: 'Cliente no encontrado' })
   }
