@@ -21,11 +21,12 @@ function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
   next()
 }
 
-function findAll(req: Request, res: Response) {
-  res.json({data: repository.findAll() })
+async function findAll(req: Request, res: Response) {
+  const clientes = await repository.findAll()
+  res.json({data: clientes })
 }
 
-function findOne(req: Request, res: Response) {
+async function findOne(req: Request, res: Response) {
   const id = Number(req.params.id)
   const cliente = repository.findOne({ id })
   if (cliente) {
@@ -35,9 +36,9 @@ function findOne(req: Request, res: Response) {
   }
 }
 
-function add(req: Request, res: Response) {
+async function add(req: Request, res: Response) {
   const input = req.body.sanitizedInput
-  const all = repository.findAll() ?? []
+  const all = (await repository.findAll()) ?? [];
   const nuevoId = (all.length > 0 ? all[all.length - 1].id : 0) + 1
   const clienteInput = new Cliente(
     nuevoId,
@@ -46,22 +47,22 @@ function add(req: Request, res: Response) {
     input.tel,
     input.email
   )
-  const cliente = repository.add(clienteInput)
+  const cliente = await repository.add(clienteInput)
   return res.status(201).send({ message: 'Cliente creado', data: cliente })
 }
 
-function update(req: Request, res: Response) {
+async function update(req: Request, res: Response) {
   req.body.sanitizedInput.id = Number(req.params.id)
-  const cliente = repository.update(req.body.sanitizedInput)
+  const cliente = await repository.update(req.body.sanitizedInput)
   if (!cliente) {
     return res.status(404).send({ message: 'Cliente no encontrado' })
   }
   return res.status(200).send({ message: 'Cliente actualizado', data: cliente })
 }
 
-function remove(req: Request, res: Response) {
+async function remove(req: Request, res: Response) {
   const id = Number(req.params.id)
-  const cliente = repository.delete({ id })
+  const cliente = await repository.delete({ id })
   if (!cliente) {
     return res.status(404).send({ message: 'Cliente no encontrado' })
   }

@@ -1,13 +1,15 @@
 import {Repository} from '../shared/repository.js';
 import {Cliente} from './cliente.entity.js';
+import {pool} from '../shared/db/conn.mysql.js';
 
 const clientes: Cliente[] = [
   new Cliente(1, 'Empresa A', '20-12345678-9', 123456789, 'email@empresaA.com')
 ]
 
 export class ClienteRepository implements Repository<Cliente> {
-  public findAll(): Cliente[] | undefined {
-    return clientes
+  public async findAll(): Promise<Cliente[] | undefined> {
+    const [clientes] = await pool.query('SELECT * FROM cliente')
+    return clientes as Cliente[]
   }
 
   public findOne(item: { id: number }): Cliente | undefined {
