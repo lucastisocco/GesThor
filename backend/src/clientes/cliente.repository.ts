@@ -35,16 +35,19 @@ export class ClienteRepository implements Repository<Cliente> {
     Object.entries(clienteInput).filter(([_, value]) => value !== undefined)
     )
     await pool.query('UPDATE cliente SET ? WHERE id_cliente = ?', [updatedFields, id])
-    return clienteInput
+    return await this.findOne({ id: clienteId })
   }
   
 
-  public delete(item: { id: number }): Cliente | undefined {
-    const index = clientes.findIndex((cliente) => cliente.id === item.id)
-    if (index !== -1) {
-      const deletedCliente = clientes[index]
-      clientes.splice(index, 1)
-      return deletedCliente
+  public async delete(item: { id: number }): Promise<Cliente | undefined> {
+    try {
+      const clienteToDelete = await this.findOne(item)
+      const clienteId = Number(item.id)
+      await pool.query('DELETE FROM cliente WHERE id_cliente = ?', [clienteId])
+      return clienteToDelete
+    } catch (error: any) {
+      throw new Error(`No se pudo eliminar el cliente: ${error.message}`)
+      return undefined
     }
   }
 }

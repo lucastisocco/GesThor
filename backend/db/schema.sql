@@ -77,7 +77,7 @@ CREATE TABLE proyecto (
     fecha_fin    DATE,
     id_cliente        INT          NOT NULL,
     id_tipo_proyecto  INT          NOT NULL,
-    CONSTRAINT fk_proyecto_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente) ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_proyecto_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_proyecto_tipo FOREIGN KEY (id_tipo_proyecto) REFERENCES tipo_proyecto(id_tipo_proyecto) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
