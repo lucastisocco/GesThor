@@ -9,10 +9,10 @@ POST http://localhost:3000/api/clientes
 Content-Type: application/json
 
 {
-  "razon_social": "Empresa XYZ",
-  "cuit": "30-12345678-9",
-  "tel": 123456789,
-  "email": "email@empresaxyz.com"
+  "razon_social": "XTZ Insumos",
+  "cuit": "30123456789",
+  "tel": 345096721,
+  "email": "insumos_xtz@gmail.com"
 }
 
 ### actualizar un cliente existente
@@ -21,8 +21,8 @@ Content-Type: application/json
 
 {
   "razon_social": "Empresa MZ",
-  "cuit": "35-55555555-3",
-  "tel": 987987987,
+  "cuit": "35555555553",
+  "tel": 3451234987,
   "email": "email@empresamz.com"
 }
 

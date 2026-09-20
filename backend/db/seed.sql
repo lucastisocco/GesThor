@@ -21,12 +21,12 @@ INSERT INTO categoria_empleado (id_categoria, nombre, descripcion, fec_desde) VA
 -- CLIENTE
 -- ============================================================
 INSERT INTO cliente (id_cliente, razon_social, cuit, tel, email) VALUES
-(1, 'Banco del Litoral S.A.',        '30712345671', '0341-4123456', 'contacto@bancolitoral.com.ar'),
-(2, 'AgroSanta Cooperativa Ltda.',   '30712345672', '0341-4223456', 'sistemas@agrosanta.coop'),
-(3, 'Retail Total S.R.L.',           '30712345673', '0341-4323456', 'it@retailtotal.com.ar'),
-(4, 'Municipalidad de Rosario',      '30712345674', '0341-4423456', 'informatica@rosario.gob.ar'),
-(5, 'LogiTrans S.A.',                '30712345675', '0341-4523456', 'soporte@logitrans.com.ar'),
-(6, 'Uso Interno (Producto Propio)', '30712345676', '0341-4623456', 'interno@gesthor.com.ar');
+(1, 'Banco del Litoral S.A.',        '30712345671', '3414123456', 'contacto@bancolitoral.com.ar'),
+(2, 'AgroSanta Cooperativa Ltda.',   '30712345672', '3414223456', 'sistemas@agrosanta.coop'),
+(3, 'Retail Total S.R.L.',           '30712345673', '3414323456', 'it@retailtotal.com.ar'),
+(4, 'Municipalidad de Rosario',      '30712345674', '3414423456', 'informatica@rosario.gob.ar'),
+(5, 'LogiTrans S.A.',                '30712345675', '3414523456', 'soporte@logitrans.com.ar'),
+(6, 'Uso Interno (Producto Propio)', '30712345676', '3414623456', 'interno@gesthor.com.ar');
 
 -- ============================================================
 -- TIPO_PROYECTO
@@ -69,16 +69,16 @@ INSERT INTO registro_horas (id_registro, cant_horas, desc_tarea) VALUES
 -- EMPLEADO
 -- ============================================================
 INSERT INTO empleado (cuil, ape_nom, fecha_nac, num_tel, rol, usuario, passwd, id_categoria) VALUES
-('20345678901', 'Gómez, Lucas',       '1996-05-14', '341-5551001', 'Desarrollador Backend',   'lgomez',    'x8f2Klq9$hA', 3),
-('27345678902', 'Fernández, Ana',     '1998-11-02', '341-5551002', 'Desarrolladora Frontend', 'afernandez','p0mZ7trQ!2b', 2),
-('20345678903', 'Rodríguez, Martín',  '1990-02-20', '341-5551003', 'QA Tester',               'mrodriguez','q3Vn8sLp#1c', 3),
-('20345678904', 'López, Sofía',       '1993-07-09', '341-5551004', 'DevOps Engineer',         'slopez',    'z9Ct4wRe%3d', 4),
-('27345678905', 'Pérez, Camila',      '1995-09-30', '341-5551005', 'Diseñadora UX/UI',        'cperez',    'k1Bm6yTs&4e', 3),
-('20345678906', 'Sánchez, Diego',     '1988-01-17', '341-5551006', 'Team Lead Backend',       'dsanchez',  'j7Nx2pQw*5f', 5),
-('20345678907', 'Torres, Federico',   '1992-04-25', '341-5551007', 'Project Manager',         'ftorres',   'h4Rl9mKz@6g', 6),
-('27345678908', 'Álvarez, Julieta',   '1999-03-12', '341-5551008', 'Desarrolladora Backend',  'jalvarez',  'w6Yt3nBc!7h', 1),
-('20345678909', 'Ramírez, Nicolás',   '1991-12-05', '341-5551009', 'Soporte Técnico',         'nramirez',  'e2Sq8vDf#8i', 2),
-('20345678910', 'Ibáñez, Valentina',  '1994-06-18', '341-5551010', 'Recursos Humanos',        'vibanez',   'r5Tp1jGh$9j', 4);
+('20345678901', 'Gómez, Lucas',       '1996-05-14', '3415551001', 'Desarrollador Backend',   'lgomez',    'x8f2Klq9$hA', 3),
+('27345678902', 'Fernández, Ana',     '1998-11-02', '3415551002', 'Desarrolladora Frontend', 'afernandez','p0mZ7trQ!2b', 2),
+('20345678903', 'Rodríguez, Martín',  '1990-02-20', '3415551003', 'QA Tester',               'mrodriguez','q3Vn8sLp#1c', 3),
+('20345678904', 'López, Sofía',       '1993-07-09', '3415551004', 'DevOps Engineer',         'slopez',    'z9Ct4wRe%3d', 4),
+('27345678905', 'Pérez, Camila',      '1995-09-30', '3415551005', 'Diseñadora UX/UI',        'cperez',    'k1Bm6yTs&4e', 3),
+('20345678906', 'Sánchez, Diego',     '1988-01-17', '3415551006', 'Team Lead Backend',       'dsanchez',  'j7Nx2pQw*5f', 5),
+('20345678907', 'Torres, Federico',   '1992-04-25', '3415551007', 'Project Manager',         'ftorres',   'h4Rl9mKz@6g', 6),
+('27345678908', 'Álvarez, Julieta',   '1999-03-12', '3415551008', 'Desarrolladora Backend',  'jalvarez',  'w6Yt3nBc!7h', 1),
+('20345678909', 'Ramírez, Nicolás',   '1991-12-05', '3415551009', 'Soporte Técnico',         'nramirez',  'e2Sq8vDf#8i', 2),
+('20345678910', 'Ibáñez, Valentina',  '1994-06-18', '3415551010', 'Recursos Humanos',        'vibanez',   'r5Tp1jGh$9j', 4);
 
 -- ============================================================
 -- PROYECTO

@@ -52,12 +52,13 @@ async function add(req: Request, res: Response) {
 }
 
 async function update(req: Request, res: Response) {
-  req.body.sanitizedInput.id = Number(req.params.id)
-  const cliente = await repository.update(req.body.sanitizedInput)
+  const cliente = await repository.update(Number(req.params.id), req.body.sanitizedInput)
+
   if (!cliente) {
-    return res.status(404).send({ message: 'Cliente no encontrado' })
+    return res.status(404).send({ message: 'Cliente no encontrado' });
   }
-  return res.status(200).send({ message: 'Cliente actualizado', data: cliente })
+
+  return res.status(200).send({ message: 'Cliente actualizado', data: cliente });
 }
 
 async function remove(req: Request, res: Response) {
