@@ -2,6 +2,12 @@ import 'reflect-metadata'
 import express from 'express'
 import { RequestContext } from '@mikro-orm/core'
 import { clienteRouter } from './clientes/cliente.routes.js'
+import { tipoProyectoRouter } from './tipoProyecto/tipoProyecto.routes.js'
+import { categoriaEmpleadoRouter } from './categoriaEmpleado/categoriaEmpleado.routes.js'
+import { areaRouter } from './area/area.routes.js'
+import { registroHorasRouter } from './registroHoras/registroHoras.routes.js'
+import { empleadoRouter } from './empleado/empleado.routes.js'
+import { proyectoRouter } from './proyecto/proyecto.routes.js'
 import { orm, syncSchema } from './shared/db/orm.js'
 
 const app = express()
@@ -14,6 +20,12 @@ app.use((req, res, next) => {
 //antes de las rutas y middlewares de negocio
 
 app.use('/api/clientes', clienteRouter)
+app.use('/api/tipos-proyecto', tipoProyectoRouter)
+app.use('/api/categorias-empleado', categoriaEmpleadoRouter)
+app.use('/api/areas', areaRouter)
+app.use('/api/registros-horas', registroHorasRouter)
+app.use('/api/empleados', empleadoRouter)
+app.use('/api/proyectos', proyectoRouter)
 
 app.use((_, res) => { 
   res.status(404).json({ message: 'Endpoint no encontrado' })

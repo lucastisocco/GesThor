@@ -1,0 +1,26 @@
+### Obtener todos los tipos de proyecto
+GET http://localhost:3000/api/tipos-proyecto
+
+### Obtener un tipo de proyecto por ID
+GET http://localhost:3000/api/tipos-proyecto/1
+
+### Crear un nuevo tipo de proyecto
+POST http://localhost:3000/api/tipos-proyecto
+Content-Type: application/json
+
+{
+  "nombre": "Desarrollo Web",
+  "descripcion": "Proyectos de desarrollo frontend y backend"
+}
+
+### Actualizar un tipo de proyecto existente
+PUT http://localhost:3000/api/tipos-proyecto/1
+Content-Type: application/json
+
+{
+  "nombre": "Desarrollo Web Fullstack",
+  "descripcion": "Plataformas web integradas con microservicios"
+}
+
+### Eliminar un tipo de proyecto
+DELETE http://localhost:3000/api/tipos-proyecto/1

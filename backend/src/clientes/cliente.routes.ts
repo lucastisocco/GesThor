@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { sanitizeClienteInput, findAll, findOne, add, update, remove } from './cliente.controler.js'
+import { sanitizeClienteInput, findAll, findOne, add, update, remove } from './cliente.controller.js'
 
 export const clienteRouter = Router()
 
