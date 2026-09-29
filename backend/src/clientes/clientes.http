@@ -1,39 +1,30 @@
-### obtener todos los clientes
+### Obtener todos los clientes
 GET http://localhost:3000/api/clientes
 
-### obtener un cliente por ID
-GET http://localhost:3000/api/clientes/6
+### Obtener un cliente por ID
+GET http://localhost:3000/api/clientes/1
 
-### crear un nuevo cliente
-POST http://localhost:3000/api/clientes 
+### Crear un nuevo cliente
+POST http://localhost:3000/api/clientes
 Content-Type: application/json
 
 {
-  "razon_social": "XTZ Insumos",
+  "razonSocial": "XTZ Insumos",
   "cuit": "30123456789",
-  "tel": 345096721,
+  "tel": "345096721",
   "email": "insumos_xtz@gmail.com"
 }
 
-### actualizar un cliente existente
-PUT http://localhost:3000/api/clientes/3
+### Actualizar un cliente existente
+PUT http://localhost:3000/api/clientes/1
 Content-Type: application/json
 
 {
-  "razon_social": "Empresa MZ",
+  "razonSocial": "Empresa MZ",
   "cuit": "35555555553",
-  "tel": 3451234987,
+  "tel": "3451234987",
   "email": "email@empresamz.com"
 }
 
-
-### actualizar parcialmente un cliente existente
-PATCH http://localhost:3000/api/clientes/3
-Content-Type: application/json
-
-{
-  "tel": 888888888
-}
-
-### eliminar un cliente
-DELETE http://localhost:3000/api/clientes/2
+### Eliminar un cliente
+DELETE http://localhost:3000/api/clientes/1

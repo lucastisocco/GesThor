@@ -9,66 +9,66 @@ USE gesthor;
 -- ============================================================
 -- CATEGORIA_EMPLEADO 
 -- ============================================================
-INSERT INTO categoria_empleado (id_categoria, nombre, descripcion, fec_desde) VALUES
-(1, 'Trainee',       'Empleado en formación inicial, sin experiencia previa',            '2018-03-01'),
-(2, 'Junior',        'Hasta 2 años de experiencia, requiere supervisión frecuente',       '2018-03-01'),
-(3, 'Semi Senior',   'Entre 2 y 4 años de experiencia, trabaja con autonomía media',      '2018-03-01'),
-(4, 'Senior',        'Más de 4 años de experiencia, alta autonomía técnica',              '2018-03-01'),
-(5, 'Team Lead',     'Referente técnico y líder de un equipo de trabajo',                 '2019-06-01'),
-(6, 'Project Manager','Responsable de la gestión y coordinación de proyectos',            '2019-06-01');
+INSERT INTO categoria_empleado (nombre, descripcion, fecDesde) VALUES
+('Trainee',       'Empleado en formación inicial, sin experiencia previa',            '2018-03-01'),
+('Junior',        'Hasta 2 años de experiencia, requiere supervisión frecuente',       '2018-03-01'),
+('Semi Senior',   'Entre 2 y 4 años de experiencia, trabaja con autonomía media',      '2018-03-01'),
+('Senior',        'Más de 4 años de experiencia, alta autonomía técnica',              '2018-03-01'),
+('Team Lead',     'Referente técnico y líder de un equipo de trabajo',                 '2019-06-01'),
+('Project Manager','Responsable de la gestión y coordinación de proyectos',            '2019-06-01');
 
 -- ============================================================
 -- CLIENTE
 -- ============================================================
-INSERT INTO cliente (id_cliente, razon_social, cuit, tel, email) VALUES
-(1, 'Banco del Litoral S.A.',        '30712345671', '3414123456', 'contacto@bancolitoral.com.ar'),
-(2, 'AgroSanta Cooperativa Ltda.',   '30712345672', '3414223456', 'sistemas@agrosanta.coop'),
-(3, 'Retail Total S.R.L.',           '30712345673', '3414323456', 'it@retailtotal.com.ar'),
-(4, 'Municipalidad de Rosario',      '30712345674', '3414423456', 'informatica@rosario.gob.ar'),
-(5, 'LogiTrans S.A.',                '30712345675', '3414523456', 'soporte@logitrans.com.ar'),
-(6, 'Uso Interno (Producto Propio)', '30712345676', '3414623456', 'interno@gesthor.com.ar');
+INSERT INTO cliente (razonSocial, cuit, tel, email) VALUES
+('Banco del Litoral S.A.',        '30712345671', '3414123456', 'contacto@bancolitoral.com.ar'),
+('AgroSanta Cooperativa Ltda.',   '30712345672', '3414223456', 'sistemas@agrosanta.coop'),
+('Retail Total S.R.L.',           '30712345673', '3414323456', 'it@retailtotal.com.ar'),
+('Municipalidad de Rosario',      '30712345674', '3414423456', 'informatica@rosario.gob.ar'),
+('LogiTrans S.A.',                '30712345675', '3414523456', 'soporte@logitrans.com.ar'),
+('Uso Interno (Producto Propio)', '30712345676', '3414623456', 'interno@gesthor.com.ar');
 
 -- ============================================================
 -- TIPO_PROYECTO
 -- ============================================================
-INSERT INTO tipo_proyecto (id_tipo_proyecto, nombre, descripcion) VALUES
-(1, 'Desarrollo a Medida',    'Construcción de un sistema o aplicación desde cero para un cliente'),
-(2, 'Mantenimiento y Soporte','Correcciones, mejoras menores y soporte sobre un sistema ya existente'),
-(3, 'Consultoría IT',         'Asesoramiento técnico y relevamiento de procesos sin desarrollo asociado'),
-(4, 'Producto Propio',        'Desarrollo interno de un producto propio de la empresa'),
-(5, 'Migración de Datos',     'Migración e integración de datos entre sistemas o bases de datos');
+INSERT INTO tipo_proyecto (nombre, descripcion) VALUES
+('Desarrollo a Medida',    'Construcción de un sistema o aplicación desde cero para un cliente'),
+('Mantenimiento y Soporte','Correcciones, mejoras menores y soporte sobre un sistema ya existente'),
+('Consultoría IT',         'Asesoramiento técnico y relevamiento de procesos sin desarrollo asociado'),
+('Producto Propio',        'Desarrollo interno de un producto propio de la empresa'),
+('Migración de Datos',     'Migración e integración de datos entre sistemas o bases de datos');
 
 -- ============================================================
 -- AREA 
 -- ============================================================
-INSERT INTO area (id_area, nombre, descripcion, fec_desde) VALUES
-(1, 'Desarrollo',                 'Equipo encargado de la construcción de software',         '2018-03-01'),
-(2, 'QA y Testing',                'Equipo encargado del control de calidad y pruebas',       '2018-03-01'),
-(3, 'Infraestructura y DevOps',    'Equipo encargado de servidores, despliegues y CI/CD',      '2019-01-15'),
-(4, 'UX/UI',                       'Equipo encargado del diseño de interfaces y experiencia',  '2020-02-01'),
-(5, 'Gestión de Proyectos',        'Equipo encargado de la planificación y seguimiento',       '2018-03-01'),
-(6, 'Soporte Técnico',             'Equipo encargado de la atención de incidentes de clientes','2018-08-01'),
-(7, 'Recursos Humanos',            'Equipo encargado de la gestión del personal',              '2018-03-01');
+INSERT INTO area (nombre, descripcion, fecDesde) VALUES
+('Desarrollo',                 'Equipo encargado de la construcción de software',         '2018-03-01'),
+('QA y Testing',                'Equipo encargado del control de calidad y pruebas',       '2018-03-01'),
+('Infraestructura y DevOps',    'Equipo encargado de servidores, despliegues y CI/CD',      '2019-01-15'),
+('UX/UI',                       'Equipo encargado del diseño de interfaces y experiencia',  '2020-02-01'),
+('Gestión de Proyectos',        'Equipo encargado de la planificación y seguimiento',       '2018-03-01'),
+('Soporte Técnico',             'Equipo encargado de la atención de incidentes de clientes','2018-08-01'),
+('Recursos Humanos',            'Equipo encargado de la gestión del personal',              '2018-03-01');
 
 -- ============================================================
 -- REGISTRO_HORAS 
 -- ============================================================
-INSERT INTO registro_horas (id_registro, cant_horas, desc_tarea) VALUES
-(1, 4.0,  'Relevamiento de requerimientos con el cliente'),
-(2, 8.0,  'Desarrollo de módulo de autenticación'),
-(3, 6.5,  'Ejecución de pruebas funcionales'),
-(4, 3.0,  'Corrección de bugs reportados en producción'),
-(5, 8.0,  'Diseño de wireframes de la pantalla principal'),
-(6, 2.5,  'Reunión de seguimiento semanal (daily/status)'),
-(7, 5.0,  'Configuración de pipeline de CI/CD'),
-(8, 7.0,  'Desarrollo de API de reportes'),
-(9, 4.5,  'Migración de tablas históricas'),
-(10, 6.0, 'Soporte a incidente crítico reportado por el cliente');
+INSERT INTO registro_horas (cantHoras, descTarea) VALUES
+(4.0,  'Relevamiento de requerimientos con el cliente'),
+(8.0,  'Desarrollo de módulo de autenticación'),
+(6.5,  'Ejecución de pruebas funcionales'),
+(3.0,  'Corrección de bugs reportados en producción'),
+(8.0,  'Diseño de wireframes de la pantalla principal'),
+(6.0,  'Reunión de seguimiento semanal (daily/status)'),
+(7.0,  'Configuración de pipeline de CI/CD'),
+(8.0,  'Desarrollo de API de reportes'),
+(9.0,  'Migración de tablas históricas'),
+(10.0,  'Soporte a incidente crítico reportado por el cliente');
 
 -- ============================================================
 -- EMPLEADO
 -- ============================================================
-INSERT INTO empleado (cuil, ape_nom, fecha_nac, num_tel, rol, usuario, passwd, id_categoria) VALUES
+INSERT INTO empleado (cuil, apeNom, fechaNac, numTel, rol, usuario, passwd, idCategoria) VALUES
 ('20345678901', 'Gómez, Lucas',       '1996-05-14', '3415551001', 'Desarrollador Backend',   'lgomez',    'x8f2Klq9$hA', 3),
 ('27345678902', 'Fernández, Ana',     '1998-11-02', '3415551002', 'Desarrolladora Frontend', 'afernandez','p0mZ7trQ!2b', 2),
 ('20345678903', 'Rodríguez, Martín',  '1990-02-20', '3415551003', 'QA Tester',               'mrodriguez','q3Vn8sLp#1c', 3),
@@ -83,18 +83,18 @@ INSERT INTO empleado (cuil, ape_nom, fecha_nac, num_tel, rol, usuario, passwd, i
 -- ============================================================
 -- PROYECTO
 -- ============================================================
-INSERT INTO proyecto (id_proyecto, nombre, proyecto_horas, fecha_ini, fecha_fin, id_cliente, id_tipo_proyecto) VALUES
-(1, 'Homebanking Banco del Litoral',        1200.00, '2024-02-01', NULL,         1, 1),
-(2, 'Portal de Socios AgroSanta',            600.00, '2024-05-15', '2025-01-31', 2, 1),
-(3, 'Soporte Sistema de Ventas Retail Total',300.00, '2023-01-10', NULL,         3, 2),
-(4, 'Sistema de Trámites Municipales',      900.00, '2024-08-01', NULL,         4, 1),
-(5, 'Migración de Datos LogiTrans',          250.00, '2025-03-01', '2025-06-30', 5, 5),
-(6, 'App Interna de Gestión de Horas',       400.00, '2024-01-15', NULL,         6, 4);
+INSERT INTO proyecto (nombre, proyectoHoras, fechaIni, fechaFin, idCliente, idTipoProyecto) VALUES
+('Homebanking Banco del Litoral',        1200.00, '2024-02-01', NULL,         1, 1),
+('Portal de Socios AgroSanta',            600.00, '2024-05-15', '2025-01-31', 2, 1),
+('Soporte Sistema de Ventas Retail Total',300.00, '2023-01-10', NULL,         3, 2),
+('Sistema de Trámites Municipales',      900.00, '2024-08-01', NULL,         4, 1),
+('Migración de Datos LogiTrans',          250.00, '2025-03-01', '2025-06-30', 5, 5),
+('App Interna de Gestión de Horas',       400.00, '2024-01-15', NULL,         6, 4);
 
 -- ============================================================
 -- ASIGNACION 
 -- ============================================================
-INSERT INTO asignacion (cuil, id_proyecto, fecha_ini, fecha_fin) VALUES
+INSERT INTO asignacion (cuil, idProyecto, fechaIni, fechaFin) VALUES
 ('20345678906', 1, '2024-02-01', NULL),        -- Sánchez (Team Lead) - Homebanking
 ('20345678901', 1, '2024-02-01', NULL),        -- Gómez (Dev Backend) - Homebanking
 ('27345678902', 1, '2024-03-01', NULL),        -- Fernández (Dev Frontend) - Homebanking
@@ -115,7 +115,7 @@ INSERT INTO asignacion (cuil, id_proyecto, fecha_ini, fecha_fin) VALUES
 -- ============================================================
 -- EMPLEADO_AREA 
 -- ============================================================
-INSERT INTO empleado_area (cuil, id_area) VALUES
+INSERT INTO empleado_area (cuil, idArea) VALUES
 ('20345678901', 1),  -- Gómez - Desarrollo
 ('27345678902', 1),  -- Fernández - Desarrollo
 ('27345678908', 1),  -- Álvarez - Desarrollo
@@ -131,7 +131,7 @@ INSERT INTO empleado_area (cuil, id_area) VALUES
 -- ============================================================
 -- REGISTRO_ASIGNACION 
 -- ============================================================
-INSERT INTO registro_asignacion (cuil, id_proyecto, id_registro, fecha_reg) VALUES
+INSERT INTO registro_asignacion (cuil, idProyecto, idRegistro, fechaReg) VALUES
 ('20345678907', 1, 1, '2024-02-05'),   -- Torres: relevamiento en Homebanking
 ('20345678901', 1, 2, '2024-03-10'),   -- Gómez: módulo de autenticación en Homebanking
 ('20345678903', 1, 3, '2024-03-20'),   -- Rodríguez: pruebas funcionales en Homebanking

@@ -1,9 +1,10 @@
 import {MikroORM} from "@mikro-orm/core"
 import { SqlHighlighter } from "@mikro-orm/sql-highlighter"
 import { MySqlDriver } from "@mikro-orm/mysql"
+import { Cliente } from "../../clientes/cliente.entity.js"
 
 export const orm = await MikroORM.init({
-  entities: ["dist/**/**/entity.js"],
+  entities: [Cliente],
   entitiesTs: ["src/**/**/entity.ts"],
   dbName: "gesthor",
   driver: MySqlDriver,
