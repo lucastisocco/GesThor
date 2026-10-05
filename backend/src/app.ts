@@ -8,6 +8,9 @@ import { areaRouter } from './area/area.routes.js'
 import { registroHorasRouter } from './registroHoras/registroHoras.routes.js'
 import { empleadoRouter } from './empleado/empleado.routes.js'
 import { proyectoRouter } from './proyecto/proyecto.routes.js'
+import { asignacionRouter } from './asignacion/asignacion.routes.js'
+import { empleadoAreaRouter } from './empleadoArea/empleadoArea.routes.js'
+import { registroAsignacionRouter } from './registroAsignacion/registroAsignacion.routes.js'
 import { orm, syncSchema } from './shared/db/orm.js'
 
 const app = express()
@@ -26,6 +29,9 @@ app.use('/api/areas', areaRouter)
 app.use('/api/registros-horas', registroHorasRouter)
 app.use('/api/empleados', empleadoRouter)
 app.use('/api/proyectos', proyectoRouter)
+app.use('/api/asignaciones', asignacionRouter)
+app.use('/api/empleados-areas', empleadoAreaRouter)
+app.use('/api/registros-asignaciones', registroAsignacionRouter)
 
 app.use((_, res) => { 
   res.status(404).json({ message: 'Endpoint no encontrado' })

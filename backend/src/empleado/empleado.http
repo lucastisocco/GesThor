@@ -1,0 +1,37 @@
+### Obtener todos los empleados
+GET http://localhost:3000/api/empleados
+
+### Obtener un empleado por CUIL
+GET http://localhost:3000/api/empleados/20345678909
+
+### Crear un nuevo empleado
+POST http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+  "cuil": "20391234567",
+  "apeNom": "García Juan",
+  "fechaNac": "1995-08-15",
+  "numTel": "3415551234",
+  "rol": "Desarrollador Backend",
+  "usuario": "jgarcia",
+  "passwd": "Password123!",
+  "idCategoria": 1
+}
+
+### Actualizar un empleado existente
+PUT http://localhost:3000/api/empleados/20391234567
+Content-Type: application/json
+
+{
+  "apeNom": "García Juan Pedro",
+  "fechaNac": "1995-08-15",
+  "numTel": "3415559999",
+  "rol": "Lead Backend Developer",
+  "usuario": "jgarcia",
+  "passwd": "Password123!",
+  "idCategoria": 1
+}
+
+### Eliminar un empleado
+DELETE http://localhost:3000/api/empleados/20391234567

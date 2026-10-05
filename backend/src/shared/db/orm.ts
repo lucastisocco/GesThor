@@ -8,9 +8,12 @@ import { Area } from '../../area/area.entity.js'
 import { RegistroHoras } from '../../registroHoras/registroHoras.entity.js'
 import { Empleado } from '../../empleado/empleado.entity.js'
 import { Proyecto } from '../../proyecto/proyecto.entity.js'
+import { Asignacion } from '../../asignacion/asignacion.entity.js'
+import { EmpleadoArea } from '../../empleadoArea/empleadoArea.entity.js'
+import { RegistroAsignacion } from '../../registroAsignacion/registroAsignacion.entity.js'
 
 export const orm = await MikroORM.init({
-  entities: [Cliente, TipoProyecto, CategoriaEmpleado, Area, RegistroHoras, Empleado, Proyecto],
+  entities: [Cliente, TipoProyecto, CategoriaEmpleado, Area, RegistroHoras, Empleado, Proyecto, Asignacion, EmpleadoArea, RegistroAsignacion],
   entitiesTs: ["src/**/**/entity.ts"],
   dbName: "gesthor",
   driver: MySqlDriver,

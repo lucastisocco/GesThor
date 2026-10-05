@@ -4,7 +4,7 @@ import { BaseEntity } from '../shared/db/baseEntity.entity.js'
 @Entity({ tableName: 'cliente' })
 export class Cliente extends BaseEntity {
 
-  @Property({ type: 'string', nullable: false })
+  @Property({ type: 'string', fieldName: 'razonSocial', nullable: false })
   razonSocial!: string
 
   @Property({ type: 'string', nullable: false, unique: true })

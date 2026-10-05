@@ -1,0 +1,34 @@
+### Obtener todos los proyectos
+GET http://localhost:3000/api/proyectos
+
+### Obtener un proyecto por ID
+GET http://localhost:3000/api/proyectos/1
+
+### Crear un nuevo proyecto
+POST http://localhost:3000/api/proyectos
+Content-Type: application/json
+
+{
+  "nombre": "Migración Sistema GesThor",
+  "proyectoHoras": 160.00,
+  "fechaIni": "2026-10-01",
+  "fechaFin": "2026-12-31",
+  "idCliente": 1,
+  "idTipoProyecto": 1
+}
+
+### Actualizar un proyecto existente
+PUT http://localhost:3000/api/proyectos/1
+Content-Type: application/json
+
+{
+  "nombre": "Migración Sistema GesThor v2",
+  "proyectoHoras": 200.00,
+  "fechaIni": "2026-10-01",
+  "fechaFin": "2027-01-31",
+  "idCliente": 1,
+  "idTipoProyecto": 1
+}
+
+### Eliminar un proyecto
+DELETE http://localhost:3000/api/proyectos/1

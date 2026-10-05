@@ -27,7 +27,11 @@ function sanitizeEmpleadoInput(req: Request, res: Response, next: NextFunction) 
 
 async function findAll(req: Request, res: Response) {
   try {
-    const empleados = await em.find(Empleado, {}, { populate: ['categoria'] })
+    const empleados = await em.find(
+      Empleado,
+      {},
+      { populate: ['categoria' as const] } // Usar 'as const' o 'as any' para forzar la literalidad
+    )
     return res.status(200).json({ message: 'Empleados encontrados', data: empleados })
   } catch (error: any) {
     return res.status(500).json({ message: error.message })
@@ -37,7 +41,13 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   try {
     const cuil = req.params.cuil
-    const empleado = await em.findOne(Empleado, { cuil }, { populate: ['categoria'] })
+
+    const empleado = await em.findOne(
+      Empleado,
+      { cuil },
+      { populate: ['categoria' as const] }
+    )
+
     if (!empleado) {
       return res.status(404).json({ message: 'Empleado no encontrado' })
     }
