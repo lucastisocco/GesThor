@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import 'reflect-metadata'
 import express from 'express'
 import { RequestContext } from '@mikro-orm/core'
@@ -11,7 +12,10 @@ import { proyectoRouter } from './proyecto/proyecto.routes.js'
 import { asignacionRouter } from './asignacion/asignacion.routes.js'
 import { empleadoAreaRouter } from './empleadoArea/empleadoArea.routes.js'
 import { registroAsignacionRouter } from './registroAsignacion/registroAsignacion.routes.js'
+import { authRouter } from './auth/auth.routes.js'
+import { authenticateJwt, authorizeRoles } from './shared/middlewares/auth.middleware.js'
 import { orm, syncSchema } from './shared/db/orm.js'
+
 
 const app = express()
 app.use(express.json())
@@ -28,10 +32,11 @@ app.use('/api/categorias-empleado', categoriaEmpleadoRouter)
 app.use('/api/areas', areaRouter)
 app.use('/api/registros-horas', registroHorasRouter)
 app.use('/api/empleados', empleadoRouter)
-app.use('/api/proyectos', proyectoRouter)
+app.use('/api/proyectos', authenticateJwt, proyectoRouter)
 app.use('/api/asignaciones', asignacionRouter)
 app.use('/api/empleados-areas', empleadoAreaRouter)
 app.use('/api/registros-asignaciones', registroAsignacionRouter)
+app.use('/api/auth', authRouter)
 
 app.use((_, res) => { 
   res.status(404).json({ message: 'Endpoint no encontrado' })
