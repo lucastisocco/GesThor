@@ -21,9 +21,9 @@ export class Asignacion {
   })
   proyecto!: Proyecto
 
-  @Property({ type: 'Date' })
+  @Property({ type: 'Date', fieldName: 'fechaAsig' })
   fechaAsig!: Date
 
-  @Property({ type: 'number' })
+  @Property({ type: 'number', fieldName: 'hsSemanales' })
   hsSemanales!: number
 }

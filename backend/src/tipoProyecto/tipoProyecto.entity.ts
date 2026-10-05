@@ -1,9 +1,11 @@
-import { Entity, Property } from '@mikro-orm/decorators/legacy'
-import { BaseEntity } from '../shared/db/baseEntity.entity.js'
+import { Entity, PrimaryKey, Property } from '@mikro-orm/decorators/legacy'
 
-@Entity({ tableName: 'tipo_proyecto' })
-export class TipoProyecto extends BaseEntity {
-  @Property({ type: 'string', nullable: false })
+@Entity({ tableName: 'tipoProyecto' })
+export class TipoProyecto {
+  @PrimaryKey({ type: 'number', autoincrement: true })
+  id!: number
+
+  @Property({ type: 'string' })
   nombre!: string
 
   @Property({ type: 'string', nullable: true })

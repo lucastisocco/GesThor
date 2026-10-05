@@ -4,7 +4,7 @@ import { Area } from '../area/area.entity.js'
 
 @Entity({ tableName: 'empleadoArea' })
 export class EmpleadoArea {
-  @PrimaryKey({ type: 'Date' })
+  @PrimaryKey({ type: 'Date', fieldName: 'fechaInicioArea' })
   fechaInicioArea!: Date
 
   @PrimaryKey({ type: 'Date' })
