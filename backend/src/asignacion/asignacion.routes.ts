@@ -7,9 +7,11 @@ import {
   remove,
   sanitizeAsignacionInput,
 } from './asignacion.controller.js'
+import { authenticateJwt, authorizeRoles } from '../shared/middlewares/auth.middleware.js'
 
 export const asignacionRouter = Router()
 
+asignacionRouter.use(authenticateJwt, authorizeRoles('Admin', 'Admin RRHH'))
 asignacionRouter.get('/', findAll)
 asignacionRouter.get('/:cuilEmpleado/:idProyecto', findOne)
 asignacionRouter.post('/', sanitizeAsignacionInput, add)

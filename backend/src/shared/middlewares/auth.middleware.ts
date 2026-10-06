@@ -42,7 +42,11 @@ export const authorizeRoles = (...allowedRoles: string[]) => {
       return res.status(401).json({ message: 'Acceso no autorizado.' })
     }
 
-    if (!allowedRoles.includes(req.user.rol)) {
+    const roleAliases: Record<string, string[]> = {
+      'Admin RRHH': ['Recursos Humanos'],
+    }
+    const effectiveRoles = allowedRoles.flatMap((role) => [role, ...(roleAliases[role] ?? [])])
+    if (!effectiveRoles.includes(req.user.rol)) {
       return res.status(403).json({
         message: `Acceso denegado. Se requiere alguno de los siguientes roles: ${allowedRoles.join(', ')}`
       })

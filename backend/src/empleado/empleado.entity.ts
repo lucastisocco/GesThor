@@ -25,8 +25,11 @@ export class Empleado {
   @Property({ type: 'string', fieldName: 'usuario', nullable: false })
   usuario!: string
 
-  @Property({ type: 'string', fieldName: 'passwd', nullable: false })
+  @Property({ type: 'string', fieldName: 'passwd', nullable: false, hidden: true })
   passwd!: string
+
+  @Property({ type: 'boolean', default: true })
+  activo = true
 
   @ManyToOne(() => CategoriaEmpleado, { fieldName: 'idCategoria', nullable: true })
   categoria?: CategoriaEmpleado

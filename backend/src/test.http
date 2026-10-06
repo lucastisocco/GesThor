@@ -1,0 +1,77 @@
+### Variables Globales
+@baseUrl = http://localhost:3000
+@cuilEmpleado = 20345678904
+@cuilResumen = 20391234567
+
+### 1. Autenticación / Obtener Token JWT
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "usuario": "ltisocco",
+  "passwd": "123456"
+}
+
+### Guardar Token Bearer desde la respuesta del Login
+@authToken = {{login.response.body.accessToken}}
+
+### 2. Historial de Asignaciones
+GET {{baseUrl}}/api/empleados/{{cuilEmpleado}}/historial-asignaciones
+Authorization: Bearer {{authToken}}
+
+### 3. Desactivar Empleado (Baja Lógica)
+PATCH {{baseUrl}}/api/empleados/27345678908/desactivar
+Authorization: Bearer {{authToken}}
+
+### 4. Proyectos por Cliente
+GET {{baseUrl}}/api/proyectos?idCliente=5
+Authorization: Bearer {{authToken}}
+
+### 5. Reporte de Horas (JSON)
+GET {{baseUrl}}/api/proyectos/1/reporte-horas?desde=2026-01-01&hasta=2026-10-06
+Authorization: Bearer {{authToken}}
+
+### 6. Reporte de Horas (CSV)
+GET {{baseUrl}}/api/proyectos/1/reporte-horas?formato=csv
+Authorization: Bearer {{authToken}}
+
+### 7. Cerrar Proyecto
+POST {{baseUrl}}/api/proyectos/1/cerrar
+Authorization: Bearer {{authToken}}
+
+### 8. Cargar Horas
+POST {{baseUrl}}/api/registros-horas
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "idProyecto": 4,
+  "cuilEmpleado": "20345678901",
+  "cantHoras": 6,
+  "descTarea": "test",
+  "fecha": "2026-10-06",
+  "observacion": "Desarrollo de endpoints de reportes"
+}
+
+### 9. Resumen Diario de Horas
+GET {{baseUrl}}/api/registros-horas/resumen-diario?cuil={{cuilResumen}}&fecha=2026-10-06
+Authorization: Bearer {{authToken}}
+
+### 10. Aprobar Registro de Horas
+PATCH {{baseUrl}}/api/registros-horas/10/aprobar
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "observacion": "Horas aprobadas."
+}
+
+### 11. Rechazar Registro de Horas
+PATCH {{baseUrl}}/api/registros-horas/11/rechazar
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "observacion": "Horas duplicadas, por favor corregir."
+}

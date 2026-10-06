@@ -6,6 +6,8 @@ import {
   update,
   remove,
   sanitizeProyectoInput,
+  reporteHoras,
+  cerrar,
 } from './proyecto.controller.js'
 import {
   authenticateJwt,
@@ -19,18 +21,20 @@ proyectoRouter.use(authenticateJwt)
 // Lectura: disponible para cualquier usuario autenticado
 proyectoRouter.get('/', findAll)
 proyectoRouter.get('/:id', findOne)
+proyectoRouter.get('/:id/reporte-horas', authorizeRoles('Admin', 'Admin RRHH'), reporteHoras)
+proyectoRouter.post('/:id/cerrar', authorizeRoles('Admin', 'Admin RRHH'), cerrar)
 
 // Creación y modificación: restringido a roles de gestión/administración
 proyectoRouter.post(
   '/',
-  authorizeRoles('Admin', 'Project Manager'),
+  authorizeRoles('Admin', 'Admin RRHH', 'Project Manager'),
   sanitizeProyectoInput,
   add
 )
 
 proyectoRouter.put(
   '/:id',
-  authorizeRoles('Admin', 'Project Manager'),
+  authorizeRoles('Admin', 'Admin RRHH', 'Project Manager'),
   sanitizeProyectoInput,
   update
 )

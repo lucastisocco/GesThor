@@ -16,7 +16,7 @@ export class AuthService {
       { populate: ['categoria'] }
     )
 
-    if (!empleado) {
+    if (!empleado || !empleado.activo) {
       throw new Error('Credenciales inválidas')
     }
 

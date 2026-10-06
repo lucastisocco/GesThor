@@ -50,39 +50,38 @@ INSERT INTO area (nombre, descripcion, fecDesde) VALUES
 ('Recursos Humanos',            'Equipo encargado de la gestión del personal',              '2018-03-01 00:00:00');
 
 
-INSERT INTO registroHoras (cantHoras, descTarea) VALUES
-(4,  'Relevamiento de requerimientos con el cliente'),
-(8,  'Desarrollo de módulo de autenticación y JWT'),
-(6,  'Ejecución de pruebas funcionales y suites e2e'),
-(3,  'Corrección de bugs reportados en producción'),
-(8,  'Diseño de wireframes y prototipo interactivo en Figma'),
-(6,  'Reunión de seguimiento semanal (daily/status) y planning'),
-(7,  'Configuración de pipeline de CI/CD en GitHub Actions'),
-(8,  'Desarrollo de API RESTful de reportes y exportación'),
-(9,  'Migración e ingesta de tablas históricas'),
-(10, 'Atención y resolución de incidente crítico en producción');
+INSERT INTO registroHoras (cantHoras, descTarea, estado, observacion, fechaRevision, revisadoPor) VALUES
+(4,  'Relevamiento de requerimientos con el cliente',             'PENDIENTE', NULL, NULL, NULL),
+(8,  'Desarrollo de módulo de autenticación y JWT',               'PENDIENTE', NULL, NULL, NULL),
+(6,  'Ejecución de pruebas funcionales y suites e2e',             'PENDIENTE', NULL, NULL, NULL),
+(3,  'Corrección de bugs reportados en producción',               'PENDIENTE', NULL, NULL, NULL),
+(8,  'Diseño de wireframes y prototipo interactivo en Figma',     'PENDIENTE', NULL, NULL, NULL),
+(6,  'Reunión de seguimiento semanal (daily/status) y planning',  'PENDIENTE', NULL, NULL, NULL),
+(7,  'Configuración de pipeline de CI/CD en GitHub Actions',      'PENDIENTE', NULL, NULL, NULL),
+(8,  'Desarrollo de API RESTful de reportes y exportación',       'PENDIENTE', NULL, NULL, NULL),
+(9,  'Migración e ingesta de tablas históricas',                  'PENDIENTE', NULL, NULL, NULL),
+(10, 'Atención y resolución de incidente crítico en producción',  'PENDIENTE', NULL, NULL, NULL);
 
+INSERT INTO empleado (cuil, apeNom, fechaNac, numTel, rol, usuario, passwd, activo, idCategoria) VALUES
+('20345678901', 'Gómez, Lucas',       '1996-07-26 00:00:00', '3415551001', 'Desarrollador Backend',   'lgomez',    '$2b$10$e8f2Klq9HashPassEncrypted1', TRUE, 3),
+('27345678902', 'Fernández, Ana',     '1998-11-02 00:00:00', '3415551002', 'Desarrolladora Frontend', 'afernandez','$2b$10$p0mZ7trQHashPassEncrypted2', TRUE, 2),
+('20345678903', 'Rodríguez, Martín',  '1990-02-20 00:00:00', '3415551003', 'QA Tester',               'mrodriguez','$2b$10$q3Vn8sLpHashPassEncrypted3', TRUE, 3),
+('20345678904', 'López, Sofía',       '1993-07-09 00:00:00', '3415551004', 'DevOps Engineer',         'slopez',    '$2b$10$z9Ct4wReHashPassEncrypted4', TRUE, 4),
+('27345678905', 'Pérez, Camila',      '1995-09-30 00:00:00', '3415551005', 'Diseñadora UX/UI',        'cperez',    '$2b$10$k1Bm6yTsHashPassEncrypted5', TRUE, 3),
+('20345678906', 'Sánchez, Diego',     '1988-01-17 00:00:00', '3415551006', 'Team Lead Backend',       'dsanchez',  '$2b$10$j7Nx2pQwHashPassEncrypted6', TRUE, 5),
+('20345678907', 'Torres, Federico',   '1992-04-25 00:00:00', '3415551007', 'Project Manager',         'ftorres',   '$2b$10$h4Rl9mKzHashPassEncrypted7', TRUE, 6),
+('27345678908', 'Álvarez, Julieta',   '1999-03-12 00:00:00', '3415551008', 'Desarrolladora Backend',  'jalvarez',  '$2b$10$w6Yt3nBcHashPassEncrypted8', TRUE, 1),
+('20345678909', 'Ramírez, Nicolás',   '1991-12-05 00:00:00', '3415551009', 'Soporte Técnico',         'nramirez',  '$2b$10$e2Sq8vDfHashPassEncrypted9', TRUE, 2),
+('20345678910', 'Ibáñez, Valentina',  '1994-06-18 00:00:00', '3415551010', 'Recursos Humanos',        'vibanez',   '$2b$10$r5Tp1jGhHashPassEncrypted10', TRUE, 4),
+('24390355153', 'Tisocco, Lucas',     '1996-07-26 00:00:00', '3415551011', 'Admin',                   'ltisocco',  '$2b$10$Ulj8alRnlmMPpk469lt3UemWdz3/8.26hfLN5VXPa63/cpVnfUZa6', TRUE, 6);
 
-INSERT INTO empleado (cuil, apeNom, fechaNac, numTel, rol, usuario, passwd, idCategoria) VALUES
-('20345678901', 'Gómez, Lucas',       '1996-07-26 00:00:00', '3415551001', 'Desarrollador Backend',   'lgomez',    '$2b$10$e8f2Klq9HashPassEncrypted1', 3),
-('27345678902', 'Fernández, Ana',     '1998-11-02 00:00:00', '3415551002', 'Desarrolladora Frontend', 'afernandez','$2b$10$p0mZ7trQHashPassEncrypted2', 2),
-('20345678903', 'Rodríguez, Martín',  '1990-02-20 00:00:00', '3415551003', 'QA Tester',               'mrodriguez','$2b$10$q3Vn8sLpHashPassEncrypted3', 3),
-('20345678904', 'López, Sofía',       '1993-07-09 00:00:00', '3415551004', 'DevOps Engineer',         'slopez',    '$2b$10$z9Ct4wReHashPassEncrypted4', 4),
-('27345678905', 'Pérez, Camila',      '1995-09-30 00:00:00', '3415551005', 'Diseñadora UX/UI',        'cperez',    '$2b$10$k1Bm6yTsHashPassEncrypted5', 3),
-('20345678906', 'Sánchez, Diego',     '1988-01-17 00:00:00', '3415551006', 'Team Lead Backend',       'dsanchez',  '$2b$10$j7Nx2pQwHashPassEncrypted6', 5),
-('20345678907', 'Torres, Federico',   '1992-04-25 00:00:00', '3415551007', 'Project Manager',         'ftorres',   '$2b$10$h4Rl9mKzHashPassEncrypted7', 6),
-('27345678908', 'Álvarez, Julieta',   '1999-03-12 00:00:00', '3415551008', 'Desarrolladora Backend',  'jalvarez',  '$2b$10$w6Yt3nBcHashPassEncrypted8', 1),
-('20345678909', 'Ramírez, Nicolás',   '1991-12-05 00:00:00', '3415551009', 'Soporte Técnico',         'nramirez',  '$2b$10$e2Sq8vDfHashPassEncrypted9', 2),
-('20345678910', 'Ibáñez, Valentina',  '1994-06-18 00:00:00', '3415551010', 'Recursos Humanos',        'vibanez',   '$2b$10$r5Tp1jGhHashPassEncrypted10', 4);
-
-
-INSERT INTO proyecto (nombre, proyectoHoras, fechaIni, fechaFin, idCliente, idTipoProyecto) VALUES
-('Homebanking Banco del Litoral',        1200, '2024-02-01 00:00:00', NULL,                  1, 1),
-('Portal de Socios AgroSanta',            600, '2024-05-15 00:00:00', '2025-01-31 00:00:00', 2, 1),
-('Soporte Sistema de Ventas Retail Total', 300, '2023-01-10 00:00:00', NULL,                  3, 2),
-('Sistema de Trámites Municipales',       900, '2024-08-01 00:00:00', NULL,                  4, 1),
-('Migración de Datos LogiTrans',           250, '2025-03-01 00:00:00', '2025-06-30 00:00:00', 5, 5),
-('GesThor - App Interna de Gestión',       400, '2024-01-15 00:00:00', NULL,                  6, 4);
+INSERT INTO proyecto (nombre, proyectoHoras, fechaIni, fechaFin, cerrado, fechaCierre, idCliente, idTipoProyecto) VALUES
+('Homebanking Banco del Litoral',         1200, '2024-02-01 00:00:00', NULL,                  FALSE, NULL, 1, 1),
+('Portal de Socios AgroSanta',             600, '2024-05-15 00:00:00', '2025-01-31 00:00:00', FALSE, NULL, 2, 1),
+('Soporte Sistema de Ventas Retail Total',  300, '2023-01-10 00:00:00', NULL,                  FALSE, NULL, 3, 2),
+('Sistema de Trámites Municipales',        900, '2024-08-01 00:00:00', NULL,                  FALSE, NULL, 4, 1),
+('Migración de Datos LogiTrans',            250, '2025-03-01 00:00:00', '2025-06-30 00:00:00', FALSE, NULL, 5, 5),
+('GesThor - App Interna de Gestión',        400, '2024-01-15 00:00:00', NULL,                  FALSE, NULL, 6, 4);
 
 
 INSERT INTO empleadoArea (fechaInicioArea, fecha_fin_area, cuilEmpleado, idArea) VALUES

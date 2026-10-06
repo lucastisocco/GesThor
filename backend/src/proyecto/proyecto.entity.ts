@@ -17,6 +17,12 @@ export class Proyecto extends BaseEntity {
   @Property({ type: 'Date', fieldName: 'fechaFin', nullable: true })
   fechaFin?: Date
 
+  @Property({ type: 'boolean', default: false })
+  cerrado = false
+
+  @Property({ type: 'Date', fieldName: 'fechaCierre', nullable: true })
+  fechaCierre?: Date
+
   @ManyToOne(() => Cliente, { fieldName: 'idCliente', nullable: false, deleteRule: 'cascade' })
   cliente!: Cliente
 
