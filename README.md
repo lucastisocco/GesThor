@@ -40,3 +40,9 @@ gestión; el rol existente `Recursos Humanos` también se reconoce como alias de
 Los registros nuevos comienzan como `PENDIENTE`; el reporte cuenta únicamente
 los aprobados. La sincronización del esquema agrega los campos de estado,
 revisión, cierre y baja lógica al iniciar la aplicación.
+
+## Frontend
+
+React + TypeScript + Vite en `frontend`. Con el backend corriendo en el puerto
+3000 (`npm run start:dev` en `backend`), ejecutar `npm install` y `npm run dev`
+en `frontend`. Vite redirige `/api` al backend, por lo que no hace falta CORS.
