@@ -10,6 +10,13 @@ y registros horarios. Los roles `Admin` y `Admin RRHH` tienen permisos de
 gestión; el rol existente `Recursos Humanos` también se reconoce como alias de
 `Admin RRHH`.
 
+### Pruebas automatizadas
+
+Desde la raíz del repositorio, ejecutar `npm --prefix backend test` compila el
+backend y corre las pruebas de autenticación y autorización. La prueba HTTP de
+integración levanta un servidor local temporal y no requiere conectarse a MySQL.
+El archivo `test.http` es independiente y sirve para probar manualmente la API.
+
 ### Casos de uso de proyectos y horas
 
 - `GET /api/proyectos?idCliente=<id>` filtra proyectos por cliente.
