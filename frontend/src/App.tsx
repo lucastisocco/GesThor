@@ -1,7 +1,8 @@
-import { Navigate, NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { Link, Navigate, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import { useAuth } from './auth'
 import { isManager } from './types'
 import Login from './pages/Login'
+import Home from './pages/Home'
 import Horas from './pages/Horas'
 import Aprobaciones from './pages/Aprobaciones'
 import Proyectos from './pages/Proyectos'
@@ -16,7 +17,9 @@ function Layout() {
   return (
     <div className="shell">
       <header className="topbar">
-        <strong className="brand">GesThor</strong>
+        <Link to="/" className="brand">
+          GesThor
+        </Link>
         <nav>
           <NavLink to="/horas">Mis horas</NavLink>
           <NavLink to="/proyectos">Proyectos</NavLink>
@@ -44,7 +47,7 @@ function Protected({ managerOnly }: { managerOnly?: boolean }) {
   const { user, loading } = useAuth()
   if (loading) return <p className="muted pad">Cargando…</p>
   if (!user) return <Navigate to="/login" replace />
-  if (managerOnly && !isManager(user.rol)) return <Navigate to="/horas" replace />
+  if (managerOnly && !isManager(user.rol)) return <Navigate to="/" replace />
   return <Outlet />
 }
 
@@ -52,9 +55,10 @@ export default function App() {
   const { user } = useAuth()
   return (
     <Routes>
-      <Route path="/login" element={user ? <Navigate to="/horas" replace /> : <Login />} />
+      <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
       <Route element={<Protected />}>
         <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/horas" element={<Horas />} />
           <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/proyectos/:id" element={<ProyectoDetalle />} />
@@ -66,7 +70,7 @@ export default function App() {
           </Route>
         </Route>
       </Route>
-      <Route path="*" element={<Navigate to="/horas" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
